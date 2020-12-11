@@ -15,4 +15,14 @@ $(document).ready(function (){
         event.preventDefault();
         $("#contentSection").load("manufacturers.html");
     })
+
+    $("#addManufacturerLink").click(function (event){
+        event.preventDefault();
+        $("#contentSection").load("addManufacturer.html");
+    })
+
+    $("#addCarLink").click(function (event){
+        event.preventDefault();
+        $("#contentSection").load("addCar.html");
+    })
 })
