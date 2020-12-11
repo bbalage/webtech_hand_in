@@ -24,5 +24,12 @@ $(document).ready(function (){
     $("#addCarLink").click(function (event){
         event.preventDefault();
         $("#contentSection").load("addCar.html");
+        $.getJSON("https://webtechcars.herokuapp.com/api/manufacturers", function (data){
+            var manufacturerList = $("#selectManufacturers");
+            $.each(data, function(key, value){
+                var nameOption = $("<option>"+value.name+"</option>");
+                manufacturerList.append(nameOption);
+            })
+        })
     })
 })

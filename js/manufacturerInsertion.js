@@ -24,8 +24,4 @@ $(document).ready(function () {
             });
 
     })
-    /*$("#submitAddManufacturerBtn").click(function (){
-        var formData = $("#addManufacturerForm").serializeArray();
-        console.log(formData);
-    })*/
 })
