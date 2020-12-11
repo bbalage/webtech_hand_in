@@ -10,4 +10,9 @@ $(document).ready(function (){
         event.preventDefault();
         $("#contentSection").load("cars.html");
     })
+
+    $("#manufacturersLink").click(function (event){
+        event.preventDefault();
+        $("#contentSection").load("manufacturers.html");
+    })
 })
