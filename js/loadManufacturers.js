@@ -9,7 +9,28 @@ $(document).ready(function (){
             $(row).append(nameCell);
             $(row).append(countryCell);
             $(row).append(foundedCell);
+            var formUpdateCell = $("<td></td>");
+            var updateButton = $("<button>Update</button>");
+            $(updateButton).attr("id",value._id+"Button");
+            $(updateButton).attr("class", "updateButton");
+            $(updateButton).click(function (event) {
+                event.preventDefault();
+                $("#contentSection").load("updateManufacturer.html");
+                updatedObject = {
+                    "id": value._id,
+                    "name": value.name,
+                    "country": value.country,
+                    "founded": value.founded
+                };
+            })
+            $(formUpdateCell).append(updateButton);
+            $(row).append(formUpdateCell);
             $(tableBody).append(row);
         })
-    })
+    });
+    /*$(".updateButton").each(function () {
+        $(this).click(function (event) {
+
+        })
+    })*/
 })
