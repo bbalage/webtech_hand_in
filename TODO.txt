@@ -1,0 +1,9 @@
+1. Generalize functions for loading.
+2. Generalize functions for inserting.
+3. Generalize functions for updating.
+4. Make pages switch after each order is given.
+
+THEN CONTINUE WITH FORMATING.
+
++remove unnecessary comments
++remove unnecessary console logs
