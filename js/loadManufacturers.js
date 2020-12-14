@@ -9,6 +9,7 @@ $(document).ready(function (){
             $(row).append(nameCell);
             $(row).append(countryCell);
             $(row).append(foundedCell);
+            /*Cell for update button.*/
             var formUpdateCell = $("<td></td>");
             var updateButton = $("<button>Update</button>");
             $(updateButton).attr("id",value._id+"Button");

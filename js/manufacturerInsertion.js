@@ -1,12 +1,7 @@
 $(document).ready(function () {
     $("#submitAddManufacturerBtn").click(function (){
         var formData = $("#addManufacturerForm").serializeArray();
-        var manufacturer = {
-            id: null,
-            name: "",
-            country: "",
-            founded: ""
-        }
+        var manufacturer = {}
         for(i = 0; i < 4; i++){
             var formDatum = formData[i];
             manufacturer[formDatum.name] = formDatum.value;
