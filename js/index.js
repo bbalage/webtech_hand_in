@@ -89,3 +89,30 @@ function loadToTable(url, tableId, updatePage){
         })
     });
 }
+
+function addMember(url, formId, returnPage){
+    const generalForm = $("#"+formId);
+    const submitBtn = $(generalForm).find("button.submitBtn")[0];
+    $(submitBtn).click(function (){
+        const formData = $(generalForm).serializeArray();
+        const objectToInsert = {};
+        console.log(Object.getOwnPropertyNames(formData));
+        for(let i = 0; i < formData.length; i++){
+            const formDatum = formData[i];
+            objectToInsert[formDatum.name] = formDatum.value;
+        }
+        const jsonToInsert = JSON.stringify(objectToInsert);
+        console.log(jsonToInsert);
+        $.post({
+            url: url,
+            data: jsonToInsert,
+            dataType: "json",
+            success: function (data,status) {
+                alert(status);
+            },
+            contentType: "application/json; charset=UTF-8"
+        });
+        alert("Request processed.");
+        $("#contentSection").load(returnPage);
+    })
+}
