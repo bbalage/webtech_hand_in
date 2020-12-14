@@ -25,9 +25,9 @@ $(document).ready(function (){
         event.preventDefault();
         $("#contentSection").load("addCar.html");
         $.getJSON("https://webtechcars.herokuapp.com/api/manufacturers", function (data){
-            var manufacturerList = $("#selectManufacturers");
+            const manufacturerList = $("#selectManufacturers");
             $.each(data, function(key, value){
-                var nameOption = $("<option>"+value.name+"</option>");
+                const nameOption = $("<option>"+value.name+"</option>");
                 manufacturerList.append(nameOption);
             })
         })
@@ -36,7 +36,7 @@ $(document).ready(function (){
 
 function loadToTable(url, tableId, updatePage){
     $.getJSON(url, function (data){
-        var tableBody = $("#"+tableId).find("tbody")[0];
+        const tableBody = $("#"+tableId).find("tbody")[0];
         $.each(data, function(key, value){
             const propertyNames = Object.getOwnPropertyNames(value);
             const row = $("<tr></tr>");
@@ -77,7 +77,10 @@ function loadToTable(url, tableId, updatePage){
                     {
                         url: urlOrder,
                         dataType: "json",
-                        type: "DELETE"
+                        type: "DELETE",
+                        headers:{
+                            'Access-Control-Allow-Origin':'*',
+                        }
                     }
                 );
                 $("#"+rowId).remove();
@@ -107,12 +110,47 @@ function addMember(url, formId, returnPage){
             url: url,
             data: jsonToInsert,
             dataType: "json",
-            success: function (data,status) {
-                alert(status);
-            },
-            contentType: "application/json; charset=UTF-8"
+            contentType: "application/json; charset=UTF-8",
+            headers:{
+                'Access-Control-Allow-Origin':'*',
+            }
         });
         alert("Request processed.");
         $("#contentSection").load(returnPage);
+    })
+}
+
+function updateObject(url, formId, returnPage){
+    const updateForm = $("#"+formId);
+    const propertyNames = Object.getOwnPropertyNames(updatedObject);
+    for(let i = 0; i < propertyNames.length; i++){
+        const formControl = $(updateForm).find("[name = "+propertyNames[i]+"]")[0];
+        $(formControl).val(updatedObject[propertyNames[i]]);
+    }
+    const submitBtn = $(updateForm).find("button.submitBtn")[0];
+    $(submitBtn).click(function () {
+        const formData = $(updateForm).serializeArray();
+        const updatedObject = {}
+        for(let i = 0; i < formData.length; i++){
+            updatedObject[formData[i].name] = formData[i].value;
+        }
+        const updatedObjectJSON = JSON.stringify(updatedObject);
+        const urlOrder = url + "/" + updatedObject.id;
+        console.log(urlOrder);
+        console.log(updatedObjectJSON);
+        /*
+        $.ajax(
+            {
+                url: urlOrder,
+                dataType: "json",
+                type: "DELETE"
+            }
+        );
+        $.post({
+            url: url,
+            data: updatedObjectJSON,
+            dataType: "json",
+            contentType: "application/json; charset=UTF-8"
+        });*/
     })
 }

@@ -1,12 +1,13 @@
 $(document).ready(function () {
-    $("#updateManufacturerId").val(updatedObject.id);
+    updateObject("https://webtechcars.herokuapp.com/api/manufacturers/", "updateManufacturerForm", "manufacturers.html");
+    /*$("#updateManufacturerId").val(updatedObject.id);
     $("#updateManufacturerName").val(updatedObject.name);
     $("#updateManufacturerCountry").val(updatedObject.country);
     $("#updateManufacturerFounded").val(updatedObject.founded);
     $("#submitUpdateManufacturerBtn").click(function () {
         var formData = $("#updateManufacturerForm").serializeArray();
         var updatedManufacturer = {}
-        for(i = 0; i < 4; i++){
+        for(let i = 0; i < 4; i++){
             updatedManufacturer[formData[i].name] = formData[i].value;
         }
         var manufacturerJSON = JSON.stringify(updatedManufacturer);
@@ -28,5 +29,5 @@ $(document).ready(function () {
                     },
             contentType: "application/json; charset=UTF-8"
         });
-    })
+    })*/
 })
