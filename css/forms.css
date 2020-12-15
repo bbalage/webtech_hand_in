@@ -1,0 +1,34 @@
+
+
+.formContainer{
+    display: block;
+}
+
+.formItemContainer{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+input[type="text"],
+input[type="date"],
+select{
+    position: absolute;
+    left: 16rem;
+    display: inline-block;
+    line-height: 20px;
+}
+
+label{
+    margin-left: 1rem;
+}
+
+.submitBtn{
+    font-size: 18px;
+    font-weight: bold;
+    background: #779977;
+    padding: 0.5rem;
+}
+
+.submitBtn:hover{
+    background: #00FF00;
+}
