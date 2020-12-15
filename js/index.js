@@ -78,9 +78,9 @@ function loadToTable(url, tableId, updatePage){
                         url: urlOrder,
                         dataType: "json",
                         type: "DELETE",
-                        headers:{
+                        /*headers:{
                             'Access-Control-Allow-Origin':'*',
-                        }
+                        }*/
                     }
                 );
                 $("#"+rowId).remove();
@@ -110,10 +110,10 @@ function addMember(url, formId, returnPage){
             url: url,
             data: jsonToInsert,
             dataType: "json",
-            contentType: "application/json; charset=UTF-8",
-            headers:{
+            contentType: "application/json; charset=UTF-8"
+            /*headers:{
                 'Access-Control-Allow-Origin':'*',
-            }
+            }*/
         });
         alert("Request processed.");
         $("#contentSection").load(returnPage);
@@ -121,6 +121,7 @@ function addMember(url, formId, returnPage){
 }
 
 function updateObject(url, formId, returnPage){
+    console.log("In function.");
     const updateForm = $("#"+formId);
     const propertyNames = Object.getOwnPropertyNames(updatedObject);
     for(let i = 0; i < propertyNames.length; i++){
@@ -129,6 +130,7 @@ function updateObject(url, formId, returnPage){
     }
     const submitBtn = $(updateForm).find("button.submitBtn")[0];
     $(submitBtn).click(function () {
+        console.log("In button function.");
         const formData = $(updateForm).serializeArray();
         const updatedObject = {}
         for(let i = 0; i < formData.length; i++){
@@ -138,7 +140,6 @@ function updateObject(url, formId, returnPage){
         const urlOrder = url + "/" + updatedObject.id;
         console.log(urlOrder);
         console.log(updatedObjectJSON);
-        /*
         $.ajax(
             {
                 url: urlOrder,
@@ -151,6 +152,8 @@ function updateObject(url, formId, returnPage){
             data: updatedObjectJSON,
             dataType: "json",
             contentType: "application/json; charset=UTF-8"
-        });*/
+        });
+        alert("Request processed.");
+        $("#contentSection").load(returnPage);
     })
 }

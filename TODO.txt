@@ -1,7 +1,3 @@
-- Generalize functions for inserting.
-- Generalize functions for updating.
-- Make pages switch after each order is given.
-
 THEN CONTINUE WITH FORMATING.
 
 +remove unnecessary comments
