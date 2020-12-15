@@ -52,7 +52,6 @@ function loadToTable(url, tableId, updatePage){
             const updateCell = $("<td></td>");
             $(updateCell).attr("class", "dataTableCell");
             const updateButton = $("<button>Update</button>");
-            //$(updateButton).attr("id",value._id+"UpdateButton");
             $(updateButton).attr("class", "updateButton");
             $(updateButton).click(function (event) {
                 event.preventDefault();
@@ -71,12 +70,10 @@ function loadToTable(url, tableId, updatePage){
             const deleteCell = $("<td></td>");
             $(deleteCell).attr("class", "dataTableCell");
             const deleteButton = $("<button>Delete</button>");
-            //$(deleteButton).attr("id",value._id+"DeleteButton");
             $(deleteButton).attr("class", "deleteButton");
             $(deleteButton).click(function (event) {
                 event.preventDefault();
                 const urlOrder = url + "/" + value._id;
-                console.log(urlOrder);
                 $.ajax(
                     {
                         url: urlOrder,
@@ -87,8 +84,9 @@ function loadToTable(url, tableId, updatePage){
                         }*/
                     }
                 );
+                /*So the speed of the delete request in the database would not affect
+                * whether the row disappears or not.*/
                 $("#"+rowId).remove();
-                //$("#contentSection").load("manufacturers.html"); //Load happens faster, than deletion in database.
             });
             $(deleteCell).append(deleteButton);
             $(row).append(deleteCell);
@@ -103,13 +101,11 @@ function addMember(url, formId, returnPage){
     $(submitBtn).click(function (){
         const formData = $(generalForm).serializeArray();
         const objectToInsert = {};
-        console.log(Object.getOwnPropertyNames(formData));
         for(let i = 0; i < formData.length; i++){
             const formDatum = formData[i];
             objectToInsert[formDatum.name] = formDatum.value;
         }
         const jsonToInsert = JSON.stringify(objectToInsert);
-        console.log(jsonToInsert);
         $.post({
             url: url,
             data: jsonToInsert,
@@ -125,7 +121,6 @@ function addMember(url, formId, returnPage){
 }
 
 function updateObject(url, formId, returnPage){
-    console.log("In function.");
     const updateForm = $("#"+formId);
     const propertyNames = Object.getOwnPropertyNames(updatedObject);
     for(let i = 0; i < propertyNames.length; i++){
@@ -134,7 +129,6 @@ function updateObject(url, formId, returnPage){
     }
     const submitBtn = $(updateForm).find("button.submitBtn")[0];
     $(submitBtn).click(function () {
-        console.log("In button function.");
         const formData = $(updateForm).serializeArray();
         const updatedObject = {}
         for(let i = 0; i < formData.length; i++){
@@ -142,8 +136,6 @@ function updateObject(url, formId, returnPage){
         }
         const updatedObjectJSON = JSON.stringify(updatedObject);
         const urlOrder = url + "/" + updatedObject.id;
-        console.log(urlOrder);
-        console.log(updatedObjectJSON);
         $.ajax(
             {
                 url: urlOrder,

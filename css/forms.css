@@ -8,13 +8,6 @@
     padding: 1rem;
 }
 
-input[type="text"],
-input[type="date"],
-select{
-    /*display: inline-block;
-    line-height: 10px;*/
-}
-
 .submitBtn{
     font-size: 18px;
     font-weight: bold;
