@@ -2,20 +2,28 @@
 <html lang="en">
 <script rel="script" src="js/manufacturerInsertion.js" type="text/javascript"></script>
 <link rel="stylesheet" href="css/forms.css">
-<div class="formContainer">
-    <div><input type="hidden" name="id"/></div>
-    <div class="formItemContainer">
-        <label for="addManufacturerInputName" class="formLabel">Name:</label>
-        <input type="text" id="addManufacturerInputName" name="name" class="formInput formTextBox"/>
-    </div>
-    <div class="formItemContainer">
-        <label for="addManufacturerInputCountry" class="formLabel">Country:</label>
-        <input type="text" id="addManufacturerInputCountry" name="country" class="formInput formTextBox"/>
-    </div>
-    <div class="formItemContainer">
-        <label for="addManufacturerInputFounded" class="formLabel">Founded:</label>
-        <input type="date" id="addManufacturerInputFounded" name="founded" class="formInput formDate"/>
-    </div>
-    <div class="formItemContainer"><button type="button" id="submitAddManufacturerBtn" class="submitBtn">Add manufacturer</button></div>
-</div>
+<form id="addManufacturerForm" action="#" method="post">
+<table class="formTable">
+    <input type="hidden" name="id"/>
+    <tr>
+        <th class="formHeader" colspan="2">Insert new Manufacturer to the database!</th>
+    </tr>
+    <tr class="formTableRow">
+        <td class="formLabel">Name:</td>
+        <td class="formItemContainer"><input type="text" id="addManufacturerInputName" name="name" class="formInput formTextBox"/></td>
+    </tr>
+    <tr class="formTableRow">
+        <td class="formLabel">Country:</td>
+        <td class="formItemContainer"><input type="text" id="addManufacturerInputCountry" name="country" class="formInput formTextBox"/></td>
+    </tr>
+    <tr class="formTableRow">
+        <td class="formLabel">Founded:</td>
+        <td class="formItemContainer"><input type="date" id="addManufacturerInputFounded" name="founded" class="formInput formDate"/></td>
+    </tr>
+    <tr class="formTableRow">
+        <td></td>
+        <td class="formButtonContainer"><button type="button" id="submitAddManufacturerBtn" class="submitBtn">Add manufacturer</button></td>
+    </tr>
+</table>
+</form>
 </html>

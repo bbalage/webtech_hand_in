@@ -1,25 +1,18 @@
-
-
-.formContainer{
-    display: block;
+.formTable{
+    margin: auto;
+    min-width: 300px;
+    width: available;
 }
 
 .formItemContainer{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
 }
 
 input[type="text"],
 input[type="date"],
 select{
-    position: absolute;
-    left: 16rem;
-    display: inline-block;
-    line-height: 20px;
-}
-
-label{
-    margin-left: 1rem;
+    /*display: inline-block;
+    line-height: 10px;*/
 }
 
 .submitBtn{
@@ -27,8 +20,18 @@ label{
     font-weight: bold;
     background: #779977;
     padding: 0.5rem;
+    border-radius: 1rem;
+    min-width: 150px;
 }
 
 .submitBtn:hover{
     background: #00FF00;
+}
+
+.formButtonContainer{
+    padding: 1rem;
+}
+
+.formHeader{
+    font-size: 20px;
 }
