@@ -1,0 +1,42 @@
+.dataTable{
+    border-collapse: collapse;
+    margin: auto;
+    width: available;
+}
+
+.dataTableCell{
+    padding: 0.5rem 0.35rem;
+    border-top: solid black;
+    text-align: center;
+}
+
+.dataTableHeaderCell{
+    padding: 0.5rem;
+    font-size: 18px;
+}
+
+.deleteButton,
+.updateButton{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    min-width: 100px;
+}
+
+.updateButton{
+    background: #553399;
+}
+
+.deleteButton{
+    background: #993333;
+}
+
+.updateButton:hover{
+    background: #8866CC;
+}
+
+.deleteButton:hover{
+    background: #EE3333;
+}

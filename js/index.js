@@ -42,12 +42,15 @@ function loadToTable(url, tableId, updatePage){
             const row = $("<tr></tr>");
             const rowId = value._id;
             $(row).attr("id", rowId);
+            $(row).attr("class","dataTableRow");
             for(let i = 1; i < propertyNames.length; i++){
                 let generalCell = $("<td>"+value[propertyNames[i]]+"</td>");
+                $(generalCell).attr("class", "dataTableCell");
                 row.append(generalCell);
             }
             /*Cell for update button.*/
             const updateCell = $("<td></td>");
+            $(updateCell).attr("class", "dataTableCell");
             const updateButton = $("<button>Update</button>");
             //$(updateButton).attr("id",value._id+"UpdateButton");
             $(updateButton).attr("class", "updateButton");
@@ -66,6 +69,7 @@ function loadToTable(url, tableId, updatePage){
             $(tableBody).append(row);
             /*Adding delete button*/
             const deleteCell = $("<td></td>");
+            $(deleteCell).attr("class", "dataTableCell");
             const deleteButton = $("<button>Delete</button>");
             //$(deleteButton).attr("id",value._id+"DeleteButton");
             $(deleteButton).attr("class", "deleteButton");
