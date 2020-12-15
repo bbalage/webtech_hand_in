@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <script rel="script" src="js/manufacturerUpdating.js" type="text/javascript"></script>
-<h1>Update manufacturer!</h1>
+<link rel="stylesheet" href="css/forms.css">
 <form id="updateManufacturerForm" action="#" method="post">
-    <div><input type="hidden" name="id" id="updateManufacturerId"/></div>
-    <div>Name:<input type="text" name="name" id="updateManufacturerName"/></div>
-    <div>Country:<input type="text" name="country" id="updateManufacturerCountry"/></div>
-    <div>Founded:<input type="date" name="founded" id="updateManufacturerFounded"/></div>
-    <div><button type="button" id="submitUpdateManufacturerBtn" class="submitBtn">Update manufacturer</button></div>
+    <table class="formTable">
+        <input type="hidden" name="id"/>
+        <tr>
+            <th class="formHeader" colspan="2">Insert new Manufacturer to the database!</th>
+        </tr>
+        <tr class="formTableRow">
+            <td class="formLabel">Name:</td>
+            <td class="formItemContainer"><input type="text" id="addManufacturerInputName" name="name" class="formInput formTextBox"/></td>
+        </tr>
+        <tr class="formTableRow">
+            <td class="formLabel">Country:</td>
+            <td class="formItemContainer"><input type="text" id="addManufacturerInputCountry" name="country" class="formInput formTextBox"/></td>
+        </tr>
+        <tr class="formTableRow">
+            <td class="formLabel">Founded:</td>
+            <td class="formItemContainer"><input type="date" id="addManufacturerInputFounded" name="founded" class="formInput formDate"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="formButtonContainer"><button type="button" id="submitUpdateManufacturerBtn" class="submitBtn">Update manufacturer</button></td>
+        </tr>
+    </table>
 </form>
 </html>
